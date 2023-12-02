@@ -1,5 +1,3 @@
-require 'pry'
-
 class Day1
   def initialize(input_file)
     @input = File.readlines(input_file)
