@@ -11,4 +11,10 @@ describe Day2 do
       expect(day2.part1).to eq(8)
     end
   end
+
+  describe "part 2" do
+    it 'the sum of the powers of each game is 2286' do
+      expect(day2.part2).to eq(2286)
+    end
+  end
 end
