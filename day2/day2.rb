@@ -72,7 +72,9 @@ class Day2
     single_game_result
   end
 
-  # TODO: Add documentation comment for part2 method.
+  # Calculates the product of the fewest cubes of each color that are in each game.
+  #
+  # Returns the sum of the calculated values.
   def part2
     # find the fewest cubes of each color that are in each game which is actually the max cubes of each color in each game
     powers = []
