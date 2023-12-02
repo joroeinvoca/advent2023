@@ -1,4 +1,7 @@
 class Day1
+  # Initializes a new instance of the Day1 class.
+  #
+  # @param input_file [String] The path to the input file.
   def initialize(input_file)
     @input = File.readlines(input_file)
     @NUMBER_WORDS = {
@@ -14,14 +17,17 @@ class Day1
     }
   end
 
+  # Calculates the solution for part 1 of the puzzle.
+  #
+  # @return [Integer] The sum of the calibration values.
   def part1
-    # get the individual calibration values
     calibration_values = decode_calibration_values
-
-    # sum all calibration values
     calibration_values.sum
   end
 
+  # Decodes the calibration values from the input file.
+  #
+  # @return [Array<Integer>] The decoded calibration values.
   def decode_calibration_values
     calibration_values = []
     @input.each do |line|
@@ -32,21 +38,22 @@ class Day1
     calibration_values
   end
 
+  # Calculates the solution for part 2 of the puzzle.
+  #
+  # @return [Integer] The sum of the alphanumeric calibration values.
   def part2
-    # get the alphanumeric calibration values
     calibration_values = decode_alphanumeric_calibration_values
-    # sum 'em
     calibration_values.sum
   end
 
+  # Decodes the alphanumeric calibration values from the input file.
+  #
+  # @return [Array<Integer>] The decoded alphanumeric calibration values.
   def decode_alphanumeric_calibration_values
     calibration_values = []
     @input.each do |line|
-      # puts "line: #{line}"
       numbers = line.scan(/(?=(\d|#{@NUMBER_WORDS.keys.join('|')}))/).flatten
-      # puts "numbers: #{numbers}"
       calibration_value = "#{@NUMBER_WORDS[numbers[0]] || numbers[0]}#{@NUMBER_WORDS[numbers[-1]] || numbers[-1]}"
-      # puts "calibration_value: #{calibration_value}"
       calibration_values << calibration_value.to_i
     end
     calibration_values
