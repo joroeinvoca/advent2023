@@ -24,15 +24,13 @@ class Day4
   # The algorithm involves duplicating cards based on certain conditions.
   # Returns the count of cards in the deck.
   def part2
+    start_time = Time.now
     deck = []
     @input.each do |line|
       deck << Card.new(line)
     end
     
     deck.each do |card|
-      if card.game_number % 10 == 0
-        puts "Card number: #{card.game_number}"
-      end
       win_quantity = card.my_winning_numbers.length
       # fun fact, this magical i starts at 0
       win_quantity.times do |i|
@@ -40,6 +38,9 @@ class Day4
       end
     end
 
+    end_time = Time.now
+    elapsed_time = end_time - start_time
+    puts "Time elapsed: #{elapsed_time} seconds"
     deck.count
   end
 
