@@ -26,15 +26,18 @@ class Day4
   def part2
     start_time = Time.now
     deck = []
+    deck_hash = {}
     @input.each do |line|
-      deck << Card.new(line)
+      card = Card.new(line)
+      deck << card
+      deck_hash[card.game_number] = card
     end
-    
+
     deck.each do |card|
       win_quantity = card.my_winning_numbers.length
       # fun fact, this magical i starts at 0
       win_quantity.times do |i|
-        deck << deck.find { |c| c.game_number == card.game_number + i + 1 }.dup
+        deck << deck_hash[card.game_number + i + 1].dup if deck_hash[card.game_number + i + 1]
       end
     end
 
