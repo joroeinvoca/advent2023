@@ -35,7 +35,7 @@ RSpec.describe Day4 do
 
   context '#part2' do
     it 'returns the expected result' do
-      true
+      expect(day4.part2).to eq(30)
     end
   end
 end
