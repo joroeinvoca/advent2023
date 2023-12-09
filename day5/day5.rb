@@ -29,7 +29,7 @@ class Day5
   end
 
   def part1
-
+    @seeds.map { |seed| convert_seed(seed) }.min
   end
 
   def part2
