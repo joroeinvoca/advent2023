@@ -19,8 +19,7 @@ class Day5
       next if index == 0
       puts "init: #{index}"
       temp_hash = {}
-      raw_map.split("\n").drop(1).each do |row_string|
-        result_item, start_item, range = row_string.split(" ").map(&:to_i)
+      raw_map.scan(/(\d+)(?:\s|$)/).flatten.map(&:to_i).each_slice(3) do |result_item, start_item, range|
         temp_hash[Set.new(start_item..(start_item + range - 1))] = (result_item - start_item)
       end
       @maps[index] = temp_hash
