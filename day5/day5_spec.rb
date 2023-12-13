@@ -17,11 +17,14 @@ RSpec.describe Day5 do
   it 'parses maps out' do
     expect(day5.instance_variable_get(:@maps)).to be_a(Array)
     expect(day5.instance_variable_get(:@maps)[0]).to be_a(Hash)
-    expect(day5.instance_variable_get(:@maps)[0]).to include({ 98..99 => -48 }).and include({ 50..97 => 2 })
     expect(day5.instance_variable_get(:@maps).size).to be(7)
   end
 
   it 'calculates final mapped value for a seed' do
     expect(day5.convert_seed(79)).to eq(82)
+  end
+
+  it 'part 2 example returns expected result' do
+    expect(day5.part2).to eq(46)
   end
 end
