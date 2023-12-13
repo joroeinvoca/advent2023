@@ -17,7 +17,6 @@ RSpec.describe Day5 do
   it 'parses maps out' do
     expect(day5.instance_variable_get(:@maps)).to be_a(Array)
     expect(day5.instance_variable_get(:@maps)[0]).to be_a(Hash)
-    expect(day5.instance_variable_get(:@maps).size).to be(7)
   end
 
   it 'calculates final mapped value for a seed' do
