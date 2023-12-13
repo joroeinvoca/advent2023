@@ -14,15 +14,13 @@ class Day5
   def initialize(file_name)
     chunks = File.read(file_name).split("\n\n")
     @seeds = chunks[0].split(":")[1].split(" ").map(&:to_i)
-    @maps = Array.new(chunks.size - 1) { Hash.new }
-    chunks.each_with_index do |raw_map, index|
-      next if index == 0
-      puts "init: #{index}"
+    @maps = []
+    chunks[1..].each do |raw_map|
       temp_hash = {}
       raw_map.scan(/(\d+)(?:\s|$)/).flatten.map(&:to_i).each_slice(3) do |result_item, start_item, range|
         temp_hash[Set.new(start_item..(start_item + range - 1))] = (result_item - start_item)
       end
-      @maps[index] = temp_hash
+      @maps << temp_hash
     end
   end
 
