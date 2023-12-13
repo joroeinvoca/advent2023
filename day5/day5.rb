@@ -17,7 +17,7 @@ class Day5
     @maps = []
     chunks[1..].each do |raw_map|
       temp_hash = {}
-      raw_map.scan(/(\d+)(?:\s|$)/).flatten.map(&:to_i).each_slice(3) do |result_item, start_item, range|
+      raw_map.scan(/\d+/).map(&:to_i).each_slice(3) do |result_item, start_item, range|
         temp_hash[Set.new(start_item..(start_item + range - 1))] = (result_item - start_item)
       end
       @maps << temp_hash
