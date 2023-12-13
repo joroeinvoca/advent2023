@@ -14,7 +14,7 @@ class Day5
   def initialize(file_name)
     chunks = File.read(file_name).split("\n\n")
     @seeds = chunks[0].split(":")[1].split(" ").map(&:to_i)
-    @maps = Array.new(chunks.size - 1, Hash.new)
+    @maps = Array.new(chunks.size - 1) { Hash.new }
     chunks.drop(1).each_with_index do |raw_map, index|
       puts "init: #{index}"
       temp_hash = {}
